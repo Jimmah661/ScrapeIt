@@ -1,9 +1,7 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
-var axios = require("axios");
-var cheerio = require("cheerio");
-var db = require("./models");
+
 var PORT = 3000;
 var app = express();
 
@@ -15,7 +13,7 @@ mongoose.connect("mongodb://localhost/ScrapeIt", { useNewUrlParser: true });
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-  
+
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
